@@ -4,7 +4,6 @@ class Admin::AdminController < ApplicationController
 
   def verify_admin
     :authenticate_user!
-    has_role?(current_user, 'admin')
     redirect_to root_url unless has_role?(current_user, 'admin')
   end
 
