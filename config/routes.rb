@@ -1,10 +1,9 @@
 Authuser::Application.routes.draw do
   root :to => "home#index"
   match '/profiles/dashboard' => 'profiles#dashboard', :as => :user_root
-  match '/admin/users' => 'admin/users#index', :as => :admin_root
+  #match '/admin/users' => 'admin/users#index', :as => :admin_root
 
-  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}
-  resources :users
+  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => 'd'
 
   resources :profiles, :only => [:dashboard]
 

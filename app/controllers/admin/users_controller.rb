@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::AdminController
-  #load_and_authorize_resource
+  load_and_authorize_resource
   # GET /users
   # GET /users.json
   def index
@@ -45,11 +45,12 @@ class Admin::UsersController < Admin::AdminController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        flash[:notice] = flash[:notice].to_a.concat resource.errors.full_messages
+        flash[:notice] = flash[:notice].to_a.concat @user.errors.full_messages
         format.html { redirect_to admin_users_path, :notice => 'User was successfully created.' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
+        flash[:notice] = flash[:notice].to_a.concat @user.errors.full_messages
+        format.html { render :action => "new"}
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
@@ -66,7 +67,6 @@ class Admin::UsersController < Admin::AdminController
  
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        sign_in @user, :bypass => true
         format.html { redirect_to admin_users_path, :notice => 'User was successfully updated.' }
         format.json { head :ok }
       else

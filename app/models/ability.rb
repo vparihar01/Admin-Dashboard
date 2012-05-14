@@ -7,19 +7,8 @@ class Ability
       can :manage, :all
     elsif user.role? :registered
       can :manage, Post do |post|
-        post.try(:owner) == user
+        post.user_id == user.id
       end
-=begin
-      can :manage, Profile do |profile|
-        profile.try(:owner) == user
-      end
-
-    elsif user.role? :robbers
-      can :manage, Profile do |profile|
-        profile.try(:owner) == user
-      end
-=end
-
     else
       can :read, :all
     end

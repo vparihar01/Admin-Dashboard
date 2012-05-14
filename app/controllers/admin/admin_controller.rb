@@ -1,9 +1,11 @@
 class Admin::AdminController < ApplicationController
   layout "admin"
   before_filter :verify_admin
+
   def verify_admin
-    @user = current_user
-    redirect_to root_url unless @user.role? "admin"
+    :authenticate_user!
+    has_role?(current_user, 'admin')
+    redirect_to root_url unless has_role?(current_user, 'admin')
   end
 
   def current_ability

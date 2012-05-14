@@ -4,6 +4,5 @@ class AdminAbility
     if user.role? :admin
       can :manage, :all
     end
-    # define admin abilities here ....
   end
 end
