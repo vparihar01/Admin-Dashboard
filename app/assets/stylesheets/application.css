@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
 */
+.custom-link{
+    color: #00008b;
+    font-size: 14px;
+}
+
+.ftr{
+    margin-top: 465px;
+}
