@@ -26,7 +26,7 @@ group :assets do
 end
 
 group :development do
-  gem 'debugger'
+  #gem 'debugger'
 end
 
 
