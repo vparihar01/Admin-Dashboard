@@ -39,5 +39,5 @@ Authuser::Application.configure do
   config.assets.debug = true
 end
 
-RUBY_CAS_SERVER = "http://localhost:8888/"
+RUBY_CAS_SERVER = "http://cas-server.weboapps.com/"
 

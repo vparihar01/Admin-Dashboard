@@ -1,5 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  # Mandatory authentication
+#  def authenticate_user!
+#    CASClient::Frameworks::Rails::Filter.filter(self)
+#  end
+#
+## Optional authentication (not in Devise)
+#  def authenticate_user
+#    CASClient::Frameworks::Rails::GatewayFilter
+#  end
+#
+#  def user_signed_in?
+#    session[:cas_user].present?
+#  end
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
