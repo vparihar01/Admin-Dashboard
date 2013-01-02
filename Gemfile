@@ -12,6 +12,7 @@ gem 'cancan'
 gem 'jquery-rails'
 gem 'rubycas-client'
 gem 'devise_cas_authenticatable'
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
