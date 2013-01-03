@@ -47,13 +47,16 @@ end
 # gem 'ruby-debug'
 
 group :development, :test do
-  gem 'unicorn'
   gem 'capybara'
   gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'launchy'
   gem 'webrat'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem "factory_girl_rails", "1.4.0", :require => false
 end

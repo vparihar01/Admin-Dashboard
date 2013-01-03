@@ -35,3 +35,5 @@ Authuser::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+ADMIN_APP = "http://adminbt.weboapps.com/"
+RUBY_CAS_SERVER = "http://loginbt.weboapps.com/"
