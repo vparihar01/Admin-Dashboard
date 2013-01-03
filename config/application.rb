@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -57,7 +58,7 @@ module Authuser
     config.assets.version = '1.0'
 
     # Mailer Configuration
-    config.action_mailer.default_url_options = {:host => "http://local.admin-app.com/"}
+    config.action_mailer.default_url_options = {:host => "adminbt.weboapps.com"}
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         :address              => "smtp.gmail.com",

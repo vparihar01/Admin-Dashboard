@@ -17,7 +17,7 @@ Authuser::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   #Devise ulr emails
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => "adminbt.weboapps.com" }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -39,7 +39,9 @@ Authuser::Application.configure do
   config.assets.debug = true
 
 end
-
+#ADMIN_APP = "http://adminbt.weboapps.com/"
 #RUBY_CAS_SERVER = "http://loginbt.weboapps.com/"
-RUBY_CAS_SERVER = "http://local.example-test.com/"
+
 ADMIN_APP = "http://local.admin-app.com/"
+RUBY_CAS_SERVER = "http://local.example-test.com/"
+
