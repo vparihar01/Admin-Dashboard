@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:new,:create]
   # GET /posts
   # GET /posts.json
   def index
