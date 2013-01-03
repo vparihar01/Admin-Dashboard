@@ -45,3 +45,15 @@ end
 
 # To use debugger
 # gem 'ruby-debug'
+
+group :development, :test do
+  gem 'unicorn'
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'webrat'
+end
