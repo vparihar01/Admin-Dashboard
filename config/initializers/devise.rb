@@ -7,12 +7,14 @@ Devise.setup do |config|
   #config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   config.cas_base_url = RUBY_CAS_SERVER
 
+  #config.cas_logout_url = "#{RUBY_CAS_SERVER}/logout"
+  config.cas_logout_url_param = ADMIN_APP
+  config.cas_follow_url = ADMIN_APP
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
   # Automatically apply schema changes in tableless databases
   config.apply_schema = false
-
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
@@ -27,7 +29,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  #config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
