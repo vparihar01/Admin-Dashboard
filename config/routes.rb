@@ -1,4 +1,7 @@
 Authuser::Application.routes.draw do
+
+  ActiveAdmin.routes(self)
+
   root :to => "home#index"
   match '/profiles/dashboard' => 'profiles#dashboard', :as => :user_root
   #match '/admin/users' => 'admin/users#index', :as => :admin_root

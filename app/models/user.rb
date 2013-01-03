@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role_ids
 
   def cas_extra_attributes=(extra_attributes)
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@#{extra_attributes.inspect}"
     extra_attributes.each do |name, value|
       case name.to_sym
         when :fullname
@@ -43,3 +44,4 @@ class User < ActiveRecord::Base
   end
 
 end
+
