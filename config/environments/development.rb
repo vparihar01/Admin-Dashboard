@@ -37,6 +37,7 @@ Authuser::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
 end
 
 #RUBY_CAS_SERVER = "http://loginbt.weboapps.com/"

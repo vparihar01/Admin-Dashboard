@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -48,11 +48,14 @@
       <div class="container nav-collapse">
         <ul class="nav">
           <% if user_signed_in? %>
-                <li class="nav"><%= link_to "My Profile", user_root_path%></li>
-                <li class="nav"><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
+              <li class="nav"><%= link_to "My Profile", user_root_path%></li>
+              <li class="nav"><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
           <%else%>
-                <li><%= link_to('Login', new_user_session_path) %></li>
-                <li><%#= link_to('Register', new_user_registration_path) %></li>
+              <li><%= link_to('Login', new_user_session_path) %></li>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+                  <li><%= link_to "Forgot your password?", new_password_path(resource_name) %></li>
+              <% end -%>
+              <li><%#= link_to('Register', new_user_registration_path) %></li>
           <%end%>
         </ul>
       </div><!--/.nav-collapse -->
