@@ -1,25 +1,29 @@
-<h1>Listing posts</h1>
+<div class="row show-grid">
+  <div class="span4">
+    <h1>Listing posts</h1>
+  </div>
+  <div class="span3 offset2">
+    <%= link_to 'New Post', new_post_path ,:class => "btn btn-primary" %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Actions</th>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+    </tr>
 
-<br />
+    <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+  </table>
 
-<%= link_to 'New Post', new_post_path %>
+

@@ -1,15 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-
+<div class="row">
+  <div class="span4">
+    <h1>Show Post</h1>
+  </div>
+  <div class="span8">
+    <dl>
+      <dt>Title</dt>
+      <dd>
+        <%= @post.title %>
+      </dd>
+      <dt>Content</dt>
+      <dd>
+        <%= @post.content %>
+      </dd>
+    </dl>
+  </div>
+</div>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
