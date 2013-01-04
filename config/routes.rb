@@ -1,16 +1,13 @@
 Authuser::Application.routes.draw do
+
+  ActiveAdmin.routes(self)
+
   root :to => "home#index"
   match '/profiles/dashboard' => 'profiles#dashboard', :as => :user_root
-  #match '/admin/users' => 'admin/users#index', :as => :admin_root
 
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}
 
   resources :profiles, :only => [:dashboard]
-
-  namespace :admin do
-    match '/' => 'users#index'
-    resources :users
-  end
 
   resources :posts
 
