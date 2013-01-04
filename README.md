@@ -109,6 +109,36 @@ After successful authentication of CAS Login cas server redirect back to applica
   end
 ```
 
+###Post
+
+* app/models/post.rb
+
+Post model consist of validations for post attributes and stores data in database.
+
+###Role
+
+* app/models/role.rb
+
+Role model consist of roles attributes which holds user roles data
+
+#Controllers
+
+###PostsController
+
+* app/controllers/posts_controller.rb
+
+PostsController consist of RESTful actions for managing post.
+
+###ProfilesController
+
+* app/controllers/profiles_controller.rb
+
+ProfilesController consist of authorization and redirection actions
+
+
+
+
+
 
 
 
