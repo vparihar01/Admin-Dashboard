@@ -38,14 +38,17 @@ describe PostsController do
   describe 'POST create' do
     context "with valid attributes" do
       it "should create a new post" do
+        @ability.can :create, Post
         expect{
-          post "create_offer", :offer => Factory.attributes_for(:offer)
-        }.to change(Offer,:count).by(1)
+          post "create", :post => Factory.attributes_for(:post, :user_id => @user.id)
+        }.to change(Post,:count).by(1)
       end
 
-      it "redirects to the Offers list page" do
-        post "create_offer", :offer => Factory.attributes_for(:offer)
-        response.should redirect_to "/offers"
+      it "redirects to the Post page" do
+        @ability.can :create, Post
+        post "create", :post => Factory.attributes_for(:post, :user_id => @user.id)
+        #Rails.logger.debug "############################################################{response.body.inspect}"
+        response.should be_redirect
       end
     end
 

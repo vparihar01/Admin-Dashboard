@@ -29,8 +29,8 @@ describe User do
 
     context "when is an any user" do
       let(:user){ Factory(:user, :role_ids => [Factory(:role).id]) }
-      it{ should be_able_to(:read, Post.new()) }
-      it{ should_not be_able_to(:manage, Post.new) }
+      it{ should be_able_to(:manage, Post.new()) }
+      it{ should_not be_able_to(:manage, User.new) }
     end
 
   end
