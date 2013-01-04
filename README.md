@@ -8,7 +8,7 @@ This application is useful for managing users and their posts. User can authenti
 
 ##Installation
 
-requires at least Ruby 1.9.3 to run. Install Ruby Gems and Bundler if
+requires at least <tt>Ruby 1.9.3</tt> to run. Install Ruby Gems and Bundler if
 you have not already.
 
 ```
@@ -22,7 +22,7 @@ $ rails server
 
 ##CASclient
 
-This app working on CAS server authentication system using *rubycas-client gem*
+This app working on CAS server authentication system using <tt>rubycas-client gem</tt>
 
 CAS provides a solid and secure single sign on solution for web-based applications. When a user logs on to your CAS-enabled website, the CAS client checks with the CAS server to see if the user has been centrally authenticated. If not, the user is redirected to your CAS server's web-based login page where they enter their credentials, and upon successful authentication are redirected back to your client web application. If the user has been previously authenticated with the CAS server (with their 'ticket' being held as a session cookie), they are transparently allowed to go about their business.
 
@@ -33,11 +33,11 @@ We just have to add
 RUBY_CAS_SERVER = "http://example-cas-server-url/"
 ``` 
 
-in application > config > environments > [*application-environment*].rb file
+in application > config > environments > <tt>application-environment</tt>.rb file
 
 ##Role Management
 
-For managing multiple roles app using *cancan gem*
+For managing multiple roles app using <tt>cancan gem</tt>
 
 CanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access. All permissions are defined in a single location (the Ability class) and not duplicated across controllers, views, and database queries.
 
@@ -68,7 +68,7 @@ class Ability
 end
 ```
   
-The load_and_authorize_resource method is provided to automatically authorize all actions in a RESTful style resource controller. It will use a before filter to load the resource into an instance variable and authorize it for every action.
+The <tt>load_and_authorize_resource method</tt> is provided to automatically authorize all actions in a RESTful style resource controller. It will use a before filter to load the resource into an instance variable and authorize it for every action.
 
 ```Ruby
 class PostsController < ApplicationController
@@ -76,5 +76,12 @@ class PostsController < ApplicationController
   
   ...
 
+end
+```
+If the user authorization fails, a <tt>CanCan::AccessDenied</tt> exception will be raised. You can catch this and modify its behavior in the +ApplicationController+.
+
+```Ruby
+rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
 end
 ```
