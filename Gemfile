@@ -60,4 +60,5 @@ end
 group :test do
   gem 'cucumber-rails'
   gem "factory_girl_rails", "1.4.0", :require => false
+  gem 'simplecov', :require => false
 end
