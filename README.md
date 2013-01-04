@@ -90,7 +90,7 @@ end
 
 ###User
 
-*app/models/user.rb
+* app/models/user.rb
 
 User model consist of user related methods and attributes for storing user information in database
 
