@@ -26,8 +26,8 @@ This app working on CAS server authentication system using *rubycas-client gem*
 
 CAS provides a solid and secure single sign on solution for web-based applications. When a user logs on to your CAS-enabled website, the CAS client checks with the CAS server to see if the user has been centrally authenticated. If not, the user is redirected to your CAS server's web-based login page where they enter their credentials, and upon successful authentication are redirected back to your client web application. If the user has been previously authenticated with the CAS server (with their 'ticket' being held as a session cookie), they are transparently allowed to go about their business.
 
-###Change the CAS server url 
-you just have to add 
+###Change CAS server url
+We just have to add
 
 ```
 RUBY_CAS_SERVER = "http://cas-server-url/"
