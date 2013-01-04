@@ -26,14 +26,44 @@ This app working on CAS server authentication system using *rubycas-client gem*
 
 CAS provides a solid and secure single sign on solution for web-based applications. When a user logs on to your CAS-enabled website, the CAS client checks with the CAS server to see if the user has been centrally authenticated. If not, the user is redirected to your CAS server's web-based login page where they enter their credentials, and upon successful authentication are redirected back to your client web application. If the user has been previously authenticated with the CAS server (with their 'ticket' being held as a session cookie), they are transparently allowed to go about their business.
 
-###Change CAS server url
-We just have to add
+###Change CAS server url 
+We just have to add 
 
 ```
-RUBY_CAS_SERVER = "http://cas-server-url/"
+RUBY_CAS_SERVER = "http://example-cas-server-url/"
 ``` 
 
-in application > config > environments > *application-environment*.rb file
-  
+in application > config > environments > [*application-environment*].rb file
 
+##Role Management
 
+For managing multiple roles app using *cancan gem*
+
+CanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access. All permissions are defined in a single location (the Ability class) and not duplicated across controllers, views, and database queries.
+
+###Manage Roles
+
+User permissions are defined in an Ability class.
+
+* app/models/ability.rb
+
+```Ruby
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    user ||= User.new # guest user
+    if user.role? :admin
+      can :manage, :all
+    elsif user.role? :registered
+      can :manage, Post do |post|
+        post.user == user
+      end
+    elsif user.role? :staff
+      can :manage, Post
+    else
+      can :read, :all
+    end
+  end
+end
+```
