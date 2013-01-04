@@ -68,7 +68,7 @@ class Ability
 end
 ```
   
-The <tt>load_and_authorize_resource method</tt> is provided to automatically authorize all actions in a RESTful style resource controller. It will use a before filter to load the resource into an instance variable and authorize it for every action.
+The <tt>load_and_authorize_resource</tt> method is provided to automatically authorize all actions in a RESTful style resource controller. It will use a before filter to load the resource into an instance variable and authorize it for every action.
 
 ```Ruby
 class PostsController < ApplicationController
@@ -78,10 +78,17 @@ class PostsController < ApplicationController
 
 end
 ```
-If the user authorization fails, a <tt>CanCan::AccessDenied</tt> exception will be raised. You can catch this and modify its behavior in the +ApplicationController+.
+If the user authorization fails, a <tt>CanCan::AccessDenied</tt> exception will be raised. You can catch this and modify its behavior in the <tt>ApplicationController</tt>.
 
 ```Ruby
 rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
 end
 ```
+
+
+
+
+
+
+
