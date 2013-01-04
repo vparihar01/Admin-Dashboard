@@ -135,7 +135,24 @@ PostsController consist of RESTful actions for managing post.
 
 ProfilesController consist of authorization and redirection actions
 
+#Testing using Rspec
 
+For the test driven development application using <tt>rspec-rails gem</tt>
+All the applications related test cases are in <tt>spec</tt> directory of the app.
+
+In this we covered test cases related to models, controllers and roles of users.
+
+##Run Rspec
+
+In the app directory we have to run following command
+
+```
+$ rspec
+```
+
+For generating coverage we used <tt>simplecov gem</tt>
+When we run <tt>$ rspec</tt> command test cases for application executes and generate coverage of the app .
+Rspec Coverage for this application is generated in coverage directory.
 
 
 
