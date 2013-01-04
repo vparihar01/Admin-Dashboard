@@ -7,8 +7,10 @@ Devise.setup do |config|
   #config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   config.cas_base_url = RUBY_CAS_SERVER
 
-  #config.cas_logout_url = "#{RUBY_CAS_SERVER}/logout"
-  #config.cas_logout_url_param = ADMIN_APP
+  #config.cas_logout_url = ADMIN_APP
+  #config.cas_destination_url = ADMIN_APP
+  #config.cas_follow_url = ADMIN_APP
+  #Devise.cas_destination_logout_param_name = ADMIN_APP
   #config.cas_follow_url = ADMIN_APP
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
