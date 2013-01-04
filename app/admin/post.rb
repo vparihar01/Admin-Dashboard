@@ -1,7 +1,7 @@
 ActiveAdmin.register Post do
 
   form do |f|
-    f.inputs "User Details" do
+    f.inputs "Post Details" do
       f.input :title
       f.input :content
       f.input :created_at
@@ -10,12 +10,12 @@ ActiveAdmin.register Post do
   end
 
   create_or_edit = Proc.new {
-    @user            = Post.find_or_create_by_id(params[:id])
-
-    if @user.save
-      redirect_to :action => :show, :id => @user.id
+    @post            = Post.find_or_create_by_id(params[:id])
+    @post.attributes = params[:post]
+    if @post.save
+      redirect_to :action => :show, :id => @post.id
     else
-      render active_admin_template((@user.new_record? ? 'new' : 'edit') + '.html.erb')
+      render active_admin_template((@post.new_record? ? 'new' : 'edit') + '.html.erb')
     end
   }
   member_action :create, :method => :post, &create_or_edit
