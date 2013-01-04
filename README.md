@@ -67,3 +67,14 @@ class Ability
   end
 end
 ```
+  
+The load_and_authorize_resource method is provided to automatically authorize all actions in a RESTful style resource controller. It will use a before filter to load the resource into an instance variable and authorize it for every action.
+
+```Ruby
+class PostsController < ApplicationController
+  load_and_authorize_resource
+  
+  ...
+
+end
+```
