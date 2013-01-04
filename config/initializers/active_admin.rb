@@ -1,3 +1,29 @@
+# Customize the ActiveAdmin header to add our own item. NOTE: This class
+# must be registered as the view factory for the header. See below, in the
+# setup block.
+class MyAdminHeader < ActiveAdmin::Views::Header
+  include Rails.application.routes.url_helpers
+
+  def build(namespace, menu)
+    # Create a new menu item and add it to the menu. By default, all menu
+    # items have priority 10, and they're sorted within the priority. Setting
+    # this item's priority to 11 ensures that it appears after the other
+    # menu items (except for "Live Site"), which is what we want.
+    #
+    # See lib/active_admin/dashboards.rb in the activeadmin gem, for
+    # example.
+    unless menu['logout']
+      new_item = ActiveAdmin::MenuItem.new(id: 'logout',
+                                           label: 'Logout',
+                                           url: destroy_user_session_path,
+                                           priority: 11)
+      menu.add new_item
+    end
+
+    # Now, invoke the parent class's build method to put it all together.
+    super(namespace, menu)
+  end
+end
 ActiveAdmin.setup do |config|
 
   # == Site Title
@@ -7,6 +33,8 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Authuser"
   config.before_filter :check_admin_role # check if user is admin or not
+  config.view_factory.header = MyAdminHeader
+
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -79,13 +107,13 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = "destroy_user_session_path"
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
   #
   # Default:
-  # config.logout_link_method = :get
+  config.logout_link_method = :delete
 
   # == Root
   #
@@ -153,8 +181,6 @@ ActiveAdmin.setup do |config|
 end
 
 ActiveAdmin::ResourceController.class_eval do
-
-
 
   protected
   def current_ability
