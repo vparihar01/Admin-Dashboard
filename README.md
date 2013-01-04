@@ -96,7 +96,18 @@ User model consist of user related methods and attributes for storing user infor
 
 After successful authentication of CAS Login cas server redirect back to application with some extra attributes and cas_session.User model storing this information and creating virtual user at application using <tt>cas_extra_attributes</tt> method
 
-
+```Ruby
+ def cas_extra_attributes=(extra_attributes)
+    extra_attributes.each do |name, value|
+      case name.to_sym
+        when :fullname
+          self.fullname = value
+        when :email
+          self.email = value
+      end
+    end
+  end
+```
 
 
 
