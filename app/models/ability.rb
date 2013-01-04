@@ -7,8 +7,10 @@ class Ability
       can :manage, :all
     elsif user.role? :registered
       can :manage, Post do |post|
-        post.user_id == user.id
+        post.user == user
       end
+    elsif user.role? :staff
+      can :manage, Post
     else
       can :read, :all
     end

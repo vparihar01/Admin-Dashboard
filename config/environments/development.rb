@@ -39,9 +39,9 @@ Authuser::Application.configure do
   config.assets.debug = true
 
 end
-ADMIN_APP = "http://adminbt.weboapps.com/"
-RUBY_CAS_SERVER = "http://loginbt.weboapps.com/"
+#ADMIN_APP = "http://adminbt.weboapps.com/"
+#RUBY_CAS_SERVER = "http://loginbt.weboapps.com/"
 
-#ADMIN_APP = "http://local.admin-app.com/"
-#RUBY_CAS_SERVER = "http://local.example-test.com/"
+ADMIN_APP = "http://local.admin-app.com/"
+RUBY_CAS_SERVER = "http://local.example-test.com/"
 
