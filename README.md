@@ -86,6 +86,18 @@ rescue_from CanCan::AccessDenied do |exception|
 end
 ```
 
+#Models
+
+###User
+
+*app/models/user.rb
+
+User model consist of user related methods and attributes for storing user information in database
+
+After successful authentication of CAS Login cas server redirect back to application with some extra attributes and cas_session.User model storing this information and creating virtual user at application using <tt>cas_extra_attributes</tt> method
+
+
+
 
 
 
